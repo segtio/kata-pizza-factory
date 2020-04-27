@@ -1,5 +1,6 @@
 package com.kata.pizzafactory;
 
+import com.kata.pizzafactory.exception.InvalidRecipe;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FactoryTest {
 
     @Test
-    public void should_print_prepare_small_mexican_pizza () {
+    public void should_prepare_small_mexican_pizza () {
         // GIVEN
         String pizzaType = "Mexican";
         String size = "Small";
@@ -36,7 +37,7 @@ public class FactoryTest {
     }
 
     @Test
-    public void should_print_prepare_small_4seasons_pizza () {
+    public void should_prepare_small_4seasons_pizza () {
 
         // GIVEN
         String pizzaType = "Mexican";
@@ -59,5 +60,17 @@ public class FactoryTest {
         assertThat(pizza.getSize()).isEqualTo(size);
         assertThat(pizza.getToppings()).isEqualTo(toppings);
         assertThat(pizza.getPrice()).isEqualTo(price);
+    }
+
+    @Test(expected = InvalidRecipe.class)
+    public void should_throws_error_when_no_minimum_1_toppings () {
+        // GIVEN
+        String pizzaType = "Mexican";
+        String size = "Small";
+        double price = 11.0;
+
+        List<String> toppings = new ArrayList<String>();
+        // WHEN
+      Factory.prepare(pizzaType, size, toppings, price);
     }
 }

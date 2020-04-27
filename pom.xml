@@ -23,9 +23,16 @@
         <codehaus.version>1.2.1</codehaus.version>
         <maven-jar.version>2.4</maven-jar.version>
         <maven-cobertura.version>2.7</maven-cobertura.version>
+        <lombok.version>1.18.12</lombok.version>
         <java.main.class>com.kata.PizzaFactoryApp</java.main.class>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

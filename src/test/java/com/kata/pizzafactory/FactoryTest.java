@@ -34,4 +34,30 @@ public class FactoryTest {
         assertThat(pizza.getToppings()).isEqualTo(toppings);
         assertThat(pizza.getPrice()).isEqualTo(price);
     }
+
+    @Test
+    public void should_print_prepare_small_4seasons_pizza () {
+
+        // GIVEN
+        String pizzaType = "Mexican";
+        String size = "Small";
+        double price = 11.0;
+
+        List<String> toppings = new ArrayList<String>(){{
+            add("tomato sauce");
+            add("egg");
+            add("spinach");
+            add("pepper");
+            add("cheese");
+            add("chedday");
+            add("balsamic vinegar");
+        }};
+        // WHEN
+        Pizza pizza = Factory.prepare(pizzaType, size, toppings, price);
+        // THEN
+        assertThat(pizza.getType()).isEqualTo(pizzaType);
+        assertThat(pizza.getSize()).isEqualTo(size);
+        assertThat(pizza.getToppings()).isEqualTo(toppings);
+        assertThat(pizza.getPrice()).isEqualTo(price);
+    }
 }

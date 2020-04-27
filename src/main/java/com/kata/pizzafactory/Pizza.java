@@ -1,14 +1,15 @@
 package com.kata.pizzafactory;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Builder;
+import lombok.Data;
 
 import java.util.List;
 
-@Getter
-@Setter
+@Builder
+@Data
 public class Pizza {
     private String type;
     private String size;
     private List<String> toppings;
+    private double price;
 }

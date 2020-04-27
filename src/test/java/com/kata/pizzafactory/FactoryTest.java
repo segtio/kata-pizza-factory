@@ -14,6 +14,7 @@ public class FactoryTest {
         // GIVEN
         String pizzaType = "Mexican";
         String size = "Small";
+        double price = 11.0;
 
         List<String> toppings = new ArrayList<String>(){{
             add("meats");
@@ -26,10 +27,11 @@ public class FactoryTest {
             add("tomato sauce");
         }};
         // WHEN
-        Pizza pizza = Factory.prepare(pizzaType, size, toppings);
+        Pizza pizza = Factory.prepare(pizzaType, size, toppings, price);
         // THEN
         assertThat(pizza.getType()).isEqualTo(pizzaType);
         assertThat(pizza.getSize()).isEqualTo(size);
         assertThat(pizza.getToppings()).isEqualTo(toppings);
+        assertThat(pizza.getPrice()).isEqualTo(price);
     }
 }

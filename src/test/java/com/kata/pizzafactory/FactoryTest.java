@@ -73,4 +73,45 @@ public class FactoryTest {
         // WHEN
       Factory.prepare(pizzaType, size, toppings, price);
     }
+
+    @Test(expected = InvalidRecipe.class)
+    public void should_throws_error_when_no_size_toppings () {
+        // GIVEN
+        String pizzaType = "Mexican";
+        String size = null;
+        double price = 11.0;
+
+        List<String> toppings = new ArrayList<String>(){{
+            add("tomato sauce");
+            add("egg");
+            add("spinach");
+            add("pepper");
+            add("cheese");
+            add("chedday");
+            add("balsamic vinegar");
+        }};
+        // WHEN
+        Factory.prepare(pizzaType, size, toppings, price);
+    }
+
+    @Test(expected = InvalidRecipe.class)
+    public void should_throws_error_when_size_not_exist_toppings () {
+        // GIVEN
+        String pizzaType = "Mexican";
+        String size = "some size";
+        double price = 11.0;
+
+        List<String> toppings = new ArrayList<String>(){{
+            add("tomato sauce");
+            add("egg");
+            add("spinach");
+            add("pepper");
+            add("cheese");
+            add("chedday");
+            add("balsamic vinegar");
+        }};
+        // WHEN
+        Factory.prepare(pizzaType, size, toppings, price);
+    }
+
 }

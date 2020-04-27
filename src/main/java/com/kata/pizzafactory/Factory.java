@@ -7,7 +7,7 @@ import java.util.List;
 public class Factory {
     public static Pizza prepare(String pizzaType, String size, List<String> toppings, double price) {
         if (!checkToppings(toppings)) {
-            throw new InvalidRecipe();
+            throw new InvalidRecipe("toppings should have a least one element");
         }
 
         return Pizza.builder()
